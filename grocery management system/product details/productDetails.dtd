@@ -1,4 +1,6 @@
-<!ELEMENT Products (Product+)>
+<!ELEMENT Body (Products)>
+
+        <!ELEMENT Products (Product+)>
         <!ELEMENT Product (ProductCode, ProductName, ProductQuantity, ProductPrice)>
 
         <!ELEMENT ProductCode (#PCDATA)>

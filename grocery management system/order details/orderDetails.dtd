@@ -1,0 +1,14 @@
+<!ELEMENT Orders (Order+)>
+        <!ELEMENT Order (OrderNo, CustNo, OrderDate, Products, Total)>
+        <!ATTLIST Order
+                ModeOfPayment (Cash|Online) #REQUIRED>
+        <!ELEMENT OrderNo (#PCDATA)>
+        <!ELEMENT CustNo (#PCDATA)>
+        <!ELEMENT OrderDate (#PCDATA)>
+        <!ELEMENT Products (Product+)>
+        <!ELEMENT Product (ProductCode, ProductName, ProductQuantity, ProductPrice)>
+        <!ELEMENT ProductCode (#PCDATA)>
+        <!ELEMENT ProductName (#PCDATA)>
+        <!ELEMENT ProductQuantity (#PCDATA)>
+        <!ELEMENT ProductPrice (#PCDATA)>
+        <!ELEMENT Total (#PCDATA)>

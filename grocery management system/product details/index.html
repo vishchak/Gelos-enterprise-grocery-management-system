@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" type="text/css" href="productDetails.css">
+</head>
+<body>
+<h1>Product Details</h1>
+<table>
+    <tr>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Product Quantity</th>
+        <th>Product Price</th>
+    </tr>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "productDetails.xml", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const xmlDoc = xhr.responseXML;
+                const products = xmlDoc.getElementsByTagName('Product');
+
+                for (let i = 0; i < products.length; i++) {
+                    const product = products[i];
+                    const productCode = product.getElementsByTagName('ProductCode')[0].textContent;
+                    const productName = product.getElementsByTagName('ProductName')[0].textContent;
+                    const productQuantity = product.getElementsByTagName('ProductQuantity')[0].textContent;
+                    const productPrice = product.getElementsByTagName('ProductPrice')[0].textContent;
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                            <td>${productCode}</td>
+                            <td>${productName}</td>
+                            <td>${productQuantity}</td>
+                            <td>${productPrice}</td>
+                        `;
+                    document.querySelector('table').appendChild(row);
+                }
+            }
+        };
+        xhr.send();
+    </script>
+</table>
+</body>
+</html>

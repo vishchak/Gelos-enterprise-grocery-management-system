@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="productDetails.css" type="text/css"?>
 <!DOCTYPE Products SYSTEM "productDetails.dtd">
-<Body>
     <Products>
         <Product>
             <ProductCode>001</ProductCode>
@@ -100,4 +99,3 @@
             <ProductPrice>60</ProductPrice>
         </Product>
     </Products>
-</Body>

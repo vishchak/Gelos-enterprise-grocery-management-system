@@ -1,54 +1,52 @@
-
-Body {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    max-width: 1000px;
-    background-image: url("../resources/images/backgrpund.jpg");
-    background-repeat: repeat;
-    background-size: auto;
+/* Reset default styles */
+body, h1, table {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-Products {
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    max-width: 900px;
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
 }
 
-Product {
+table {
+    width: 100%;
+    border-collapse: collapse;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 2px 2px 5px #ccc;
-    background-color: #fff;
-    text-align: left;
-    line-height: 1.2;
-    min-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-ProductCode {
-    font-weight: bold;
-    color: #007bff;
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
 }
 
-ProductName {
-    font-size: 18px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-ProductQuantity,
-ProductPrice {
-    font-size: 14px;
+th {
+    background-color: #f2f2f2;
     color: #555;
 }
 
-ProductPrice {
-    color: #28a745;
+tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Additional styling for a fancier appearance */
+table {
+    margin-top: 30px;
+}
+
+th, td {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+tr:hover td {
+    color: #333;
+    background-color: #c0c0c0;
 }

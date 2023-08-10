@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Order Details</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<h1>Order Details</h1>
+<table>
+    <tr>
+        <th>Order No</th>
+        <th>Customer No</th>
+        <th>Order Date</th>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "orderDetails.xml", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const xmlDoc = xhr.responseXML;
+                const orders = xmlDoc.getElementsByTagName('Order');
+
+                for (let i = 0; i < orders.length; i++) {
+                    const order = orders[i];
+                    const orderNo = order.getElementsByTagName('OrderNo')[0].textContent;
+                    const custNo = order.getElementsByTagName('CustNo')[0].textContent;
+                    const orderDate = order.getElementsByTagName('OrderDate')[0].textContent;
+                    const product = order.getElementsByTagName('Product')[0];
+                    const productCode = product.getElementsByTagName('ProductCode')[0].textContent;
+                    const productName = product.getElementsByTagName('ProductName')[0].textContent;
+                    const quantity = product.getElementsByTagName('ProductQuantity')[0].textContent;
+                    const price = product.getElementsByTagName('ProductPrice')[0].textContent;
+                    const total = order.getElementsByTagName('Total')[0].textContent;
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                            <td>${orderNo}</td>
+                            <td>${custNo}</td>
+                            <td>${orderDate}</td>
+                            <td>${productCode}</td>
+                            <td>${productName}</td>
+                            <td>${quantity}</td>
+                            <td>${price}</td>
+                            <td>${total}</td>
+                        `;
+                    document.querySelector('table').appendChild(row);
+                }
+            }
+        };
+        xhr.send();
+    </script>
+</table>
+</body>
+</html>
